@@ -15,8 +15,6 @@ const Tasks: React.FC = () => {
 
   const [createTaskModalVisible, setCreateTaskModalVisible] = useState(false); // Stav pro zobrazení/skrytí modalu
 
-  //
-
   useEffect(() => {
     const fetchTasks = async () => {
       const fetchedTasks = await TodoApiClient.getTasks();
