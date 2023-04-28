@@ -1,0 +1,111 @@
+:root {
+  /* Light mode variables */
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --navbar-bg: #f8f9fa;
+  --nav-link-color: #000000;
+  --tr-bg-color: #ffffff;
+  --tr-odd-bg-color: #f2f2f2;
+  --tr-text-color: #000000;
+  --tr-border-color: #ccc;
+}
+
+.dark-mode {
+  /* Dark mode variables */
+  --bg-color: #212121;
+  --text-color: #ffffff;
+  --navbar-bg: #333333;
+  --nav-link-color: #ffffff;
+  --tr-bg-color: #424242;
+  --tr-odd-bg-color: #424242;
+  --tr-text-color: #ffffff;
+  --tr-border-color: #616161;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+tbody tr {
+  background-color: var(--tr-bg-color);
+  color: var(--tr-text-color);
+  border-bottom: 1px solid var(--tr-border-color);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--tr-odd-bg-color);
+}
+
+.dark-mode {
+  background-color: #212121;
+  color: #ffffff;
+}
+
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Styly pro navigační panel v dark mode */
+.dark-mode .navbar {
+  background-color: #333333;
+}
+
+.dark-mode .nav-link {
+  color: #ffffff !important;
+}
+
+/* Styly pro navigační panel v light mode */
+.light-mode .navbar {
+  background-color: #f8f9fa;
+}
+
+.light-mode .nav-link {
+  color: #000000 !important;
+}
+
+/* Styly pro tasky v dark mode */
+.dark-mode .task-row {
+  background-color: #424242;
+  border-color: #616161;
+}
+/* Styly pro řádky tabulky v dark mode */
+.dark-mode tr {
+  background-color: #424242;
+  color: #ffffff;
+}
+
+/* Styly pro řádky tabulky v light mode */
+.light-mode tr {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Styly pro řádky tabulky s lichým pořadím v light mode */
+.light-mode tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.main-content {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.dark-mode .card {
+  background-color: var(--tr-bg-color);
+  border-color: var(--tr-border-color);
+}
+
+.light-mode .card {
+  background-color: var(--bg-color);
+  border-color: var(--tr-border-color);
+}
