@@ -75,7 +75,9 @@ const TaskRow: React.FC<TaskRowProps> = ({
   return (
     <>
       <tr className="task-row">
-        <td>{task.name}</td>
+        <td>
+          <strong>{task.name}</strong>
+        </td>
         <td>{task.description}</td>
         <td>{task.completed ? "Completed" : "Not completed"}</td>
         <td>{new Date(task.created).toLocaleDateString()}</td>

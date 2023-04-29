@@ -109,17 +109,3 @@ tbody tr:nth-child(odd) {
   background-color: var(--bg-color);
   border-color: var(--tr-border-color);
 }
-.dark-mode .modal {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-.dark-mode .modal-header,
-.dark-mode .modal-footer {
-  border-color: var(--tr-border-color);
-}
-
-.dark-mode .modal-content {
-  background-color: var(--bg-color);
-  border-color: var(--tr-border-color);
-}
