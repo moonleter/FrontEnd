@@ -9,11 +9,14 @@ import CreateTaskModal from "./CreateTaskModal";
 import { SubtaskApiClient } from "../../client/SubtaskApiClient";
 import { CategoryApiClient } from "../../client/CategoryApiClient";
 import { Form } from "react-bootstrap";
+import { PriorityModel } from "../../model/PriorityModel";
 
 const Tasks: React.FC = () => {
   const [tasks, setTasks] = useState<TaskModel[]>([]);
-
-  const [createTaskModalVisible, setCreateTaskModalVisible] = useState(false); // Stav pro zobrazení/skrytí modalu
+  const [sortOrder, setSortOrder] = useState<{
+    sortBy: "alphabet" | "priority";
+    order: "asc" | "desc";
+  }>({ sortBy: "alphabet", order: "asc" });
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -23,6 +26,8 @@ const Tasks: React.FC = () => {
 
     fetchTasks();
   }, []);
+  const [createTaskModalVisible, setCreateTaskModalVisible] = useState(false); // Stav pro zobrazení/skrytí modalu
+
   const filterTasks = () => {
     const filtered = tasks.filter((task) => {
       const inTaskName = task.name
@@ -42,6 +47,34 @@ const Tasks: React.FC = () => {
     });
 
     setTasks(filtered);
+  };
+  const sortedTasks = () => {
+    const sorted = [...tasks];
+
+    if (sortOrder.sortBy === "alphabet") {
+      sorted.sort((a, b) =>
+        sortOrder.order === "asc"
+          ? a.name.localeCompare(b.name)
+          : b.name.localeCompare(a.name)
+      );
+    } else if (sortOrder.sortBy === "priority") {
+      sorted.sort((a, b) => {
+        const priorityValues: { [key in PriorityModel]: number } = {
+          LOW: 1,
+          MEDIUM: 2,
+          HIGH: 3,
+        };
+
+        const aPriorityValue = priorityValues[a.priority];
+        const bPriorityValue = priorityValues[b.priority];
+
+        return sortOrder.order === "asc"
+          ? aPriorityValue - bPriorityValue
+          : bPriorityValue - aPriorityValue;
+      });
+    }
+
+    return sorted;
   };
 
   const updateTask = (updatedTask: TaskModel) => {
@@ -167,8 +200,7 @@ const Tasks: React.FC = () => {
   };
 
   const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredTasks = tasks.filter((task) => {
+  const filteredTasks = sortedTasks().filter((task) => {
     const inTaskName = task.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
@@ -197,8 +229,40 @@ const Tasks: React.FC = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search tasks"
           />
-          <Button onClick={filterTasks}>Search Tasks</Button>
         </div>
+      </div>
+      <div>
+        <span>Sort by: </span>
+        <button
+          onClick={() =>
+            setSortOrder((prev) =>
+              prev.sortBy === "alphabet" && prev.order === "asc"
+                ? { sortBy: "alphabet", order: "desc" }
+                : { sortBy: "alphabet", order: "asc" }
+            )
+          }
+        >
+          {sortOrder.sortBy === "alphabet"
+            ? sortOrder.order === "asc"
+              ? "Alphabetical ▲"
+              : "Alphabetical ▼"
+            : "Alphabetical"}
+        </button>
+        <button
+          onClick={() =>
+            setSortOrder((prev) =>
+              prev.sortBy === "priority" && prev.order === "asc"
+                ? { sortBy: "priority", order: "desc" }
+                : { sortBy: "priority", order: "asc" }
+            )
+          }
+        >
+          {sortOrder.sortBy === "priority"
+            ? sortOrder.order === "asc"
+              ? "Priority ▲"
+              : "Priority ▼"
+            : "Priority"}
+        </button>
       </div>
       <table>
         <thead>
@@ -214,7 +278,7 @@ const Tasks: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {tasks.map((task) => (
+          {filteredTasks.map((task) => (
             <TaskRow
               key={task.id}
               task={task}
