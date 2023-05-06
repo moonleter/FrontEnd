@@ -21,3 +21,7 @@ npm install bootstrap
 npm install react-bootstrap
 
 npm install react-router-bootstrap
+
+npm install --save-dev @testing-library/react @testing-library/jest-dom
+
+npm install --save-dev @types/testing-library\_\_jest-dom
