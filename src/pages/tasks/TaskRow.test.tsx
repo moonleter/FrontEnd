@@ -3,6 +3,7 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import { TaskModel } from "../../model/TaskModel";
 import TaskRow from "./TaskRow";
 import { PriorityModel } from "../../model/PriorityModel";
+import Tasks from "./Tasks";
 
 const mockTask: TaskModel = {
   id: 1,
@@ -34,7 +35,7 @@ const defaultProps = {
   onDeleteCategory,
   onCreateSubtask,
   onCreateCategory,
-  tasks: [mockTask],
+  tasks: [mockTask], //mock objekt Tasku
 };
 // Test 1: Ověřuje, zda komponenta TaskRow správně zobrazuje název úkolu, popis úkolu a stav dokončení úkolu
 describe("TaskRow", () => {
