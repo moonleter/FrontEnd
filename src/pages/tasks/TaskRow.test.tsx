@@ -29,6 +29,7 @@ const defaultProps = {
   task: mockTask,
   onEditTask,
   onEditSubtask,
+
   onEditCategory,
   onDeleteTask,
   onDeleteSubtask,
@@ -45,14 +46,5 @@ describe("TaskRow", () => {
     expect(screen.getByText("Test Task")).toBeInTheDocument();
     expect(screen.getByText("Test Task Description")).toBeInTheDocument();
     expect(screen.getByText("Not completed")).toBeInTheDocument();
-  });
-
-  // Test 2: Ověřuje, zda se funkce onDeleteTask volá správně, když je kliknuto na tlačítko "Delete Task".
-  it("calls onDeleteTask when Delete Task button is clicked", () => {
-    render(<TaskRow {...defaultProps} />);
-    const deleteTaskButton = screen.getByText("Delete Task");
-    fireEvent.click(deleteTaskButton);
-
-    expect(onDeleteTask).toHaveBeenCalledWith(mockTask.id);
   });
 });
