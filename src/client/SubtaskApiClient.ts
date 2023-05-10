@@ -4,7 +4,6 @@ export class SubtaskApiClient {
   static async createSubtask(
     subtask: Omit<SubtaskModel, "id">
   ): Promise<SubtaskModel> {
-    // u subtasku je task, ale v databázi je taskId
     const response = await fetch("http://localhost:8080/subtasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -21,7 +20,7 @@ export class SubtaskApiClient {
   public static async updateSubtask(
     subtask: SubtaskModel
   ): Promise<SubtaskModel> {
-    const response = await fetch("http://localhost:8080/subtasks/update", {
+    const response = await fetch("http://localhost:8080/subtasks", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
