@@ -20,7 +20,7 @@ export class SubtaskApiClient {
   public static async updateSubtask(
     subtask: SubtaskModel
   ): Promise<SubtaskModel> {
-    const response = await fetch("http://localhost:8080/subtasks", {
+    const response = await fetch("http://localhost:8080/subtasks/update", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

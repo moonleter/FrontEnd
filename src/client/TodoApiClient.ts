@@ -14,7 +14,7 @@ export class TodoApiClient {
   }
 
   public static async updateTask(task: TaskModel): Promise<TaskModel> {
-    const response = await fetch("http://localhost:8080/tasks", {
+    const response = await fetch("http://localhost:8080/tasks/update", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

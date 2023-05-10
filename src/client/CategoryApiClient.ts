@@ -18,7 +18,7 @@ export class CategoryApiClient {
   public static async updateCategory(
     category: CategoryModel
   ): Promise<CategoryModel> {
-    const response = await fetch("http://localhost:8080/categories", {
+    const response = await fetch("http://localhost:8080/categories/update", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
