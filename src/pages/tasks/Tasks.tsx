@@ -28,26 +28,6 @@ const Tasks: React.FC = () => {
   }, []);
   const [createTaskModalVisible, setCreateTaskModalVisible] = useState(false); // Stav pro zobrazení/skrytí modalu
 
-  const filterTasks = () => {
-    const filtered = tasks.filter((task) => {
-      const inTaskName = task.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-      const inTaskDescription = task.description
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-      const inSubtasks = task.subtasks.some((subtask) =>
-        subtask.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      const inCategories = task.category.some((category) =>
-        category.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-
-      return inTaskName || inTaskDescription || inSubtasks || inCategories;
-    });
-
-    setTasks(filtered);
-  };
   const sortedTasks = () => {
     const sorted = [...tasks];
 
