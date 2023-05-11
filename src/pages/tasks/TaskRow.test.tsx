@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { TaskModel } from "../../model/TaskModel";
 import TaskRow from "./TaskRow";
 import { PriorityModel } from "../../model/PriorityModel";
-import Tasks from "./Tasks";
 
 const mockTask: TaskModel = {
   id: 1,
@@ -38,6 +37,7 @@ const defaultProps = {
   onCreateCategory,
   tasks: [mockTask], //mock objekt Tasku
 };
+
 // Test 1: Ověřuje, zda komponenta TaskRow správně zobrazuje název úkolu, popis úkolu a stav dokončení úkolu
 describe("TaskRow", () => {
   it("renders the task name, description, and completion status", () => {
