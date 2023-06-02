@@ -18,6 +18,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
   const [currentCategory, setCurrentCategory] = useState<CategoryModel | null>(
     null
   );
+  
 
   useEffect(() => {
     if (category) {
