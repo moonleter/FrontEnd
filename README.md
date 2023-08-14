@@ -46,3 +46,13 @@ Documentation:
 -USE CASE diagram
 ![SWI1_USE_CASE_Diagram-4](https://github.com/moonleter/BackEndToDoAppCorrect/assets/106592140/ef453f1e-7191-42b8-9dd4-50a48d1b5c5a)
 
+Screenshots from my app:
+<img width="2478" alt="image" src="https://github.com/moonleter/FrontEnd/assets/106592140/d8920a78-6a63-41e3-ae8e-abd67692aa6a">
+
+<img width="2478" alt="image" src="https://github.com/moonleter/FrontEnd/assets/106592140/8e8eed5e-c553-4c3b-b1fb-b065252af016">
+
+
+
+
+
+
