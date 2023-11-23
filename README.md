@@ -1,6 +1,6 @@
 # FrontEnd
 
-# god_with_us_todo_list_app
+# todo_list_app
 
 God be with us while making this project :.
 
