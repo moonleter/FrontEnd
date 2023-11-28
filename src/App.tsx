@@ -35,11 +35,9 @@ function App() {
                     <Nav.Link>Tasks</Nav.Link>
                   </LinkContainer>
                 </Nav>
-                {/* Přidáno tlačítko pro přepínání režimu */}
                 <Button onClick={toggleDarkMode} className="ms-2">
                   {darkMode ? "Light Mode" : "Dark Mode"}
                 </Button>
-                {/* Konec přidaného tlačítka */}
               </Navbar.Collapse>
             </Container>
           </Navbar>
